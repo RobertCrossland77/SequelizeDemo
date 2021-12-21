@@ -35,3 +35,6 @@ export class Song extends Model {
   @HasOne(_ => Lyric)
   lyrics: Lyric;
 }
+
+export type SongUpdateDto = Omit<Partial<Song>, 'id'>;
+export type SongInsertDto = Pick<Song, 'name' | 'lyrics'>;

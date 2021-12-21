@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 import { Op } from 'sequelize';
-import { Album, AlbumInsertDto } from 'src/models/album.model';
-import { Artist, ArtistInsertDto, ArtistUpdateDto } from 'src/models/artist.model';
+import { Album, AlbumInsertDto } from '../models/album.model';
+import { Artist, ArtistInsertDto, ArtistUpdateDto } from '../models/artist.model';
 
 @Injectable()
 export class ArtistService {
@@ -34,9 +34,9 @@ export class ArtistService {
     artist = (id: number): Promise<Artist> =>
         this.artistModel.findByPk(id);
 
-    updateArtist = async(id: number, artist: ArtistUpdateDto) => 
+    update = async(id: number, artist: ArtistUpdateDto) => 
         this.artistModel.update(artist, {where: {id: id}});
     
-    deleteArtist = async(id: number) => 
+    delete = async(id: number) => 
       (await (this.artistModel.findByPk(id))).destroy();
 }

@@ -18,11 +18,10 @@ export class Lyric extends Model {
   @Column
   id!: number;
 
-  
   @AllowNull
   @Unique
   @Column
-  contents: string;
+  content: string;
 
   @ForeignKey(_ => Song)
   @Column
@@ -31,3 +30,6 @@ export class Lyric extends Model {
   @BelongsTo(_ => Song)
   song: Song;
 }
+
+export type LyricUpdateDto = Omit<Partial<Lyric>, 'id'>;
+export type LyricInsertDto = Pick<Lyric, 'content'>;

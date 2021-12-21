@@ -1,6 +1,6 @@
 import { Body, Controller, Delete, Get, Param, Post, Put, Query } from '@nestjs/common';
-import { AlbumInsertDto } from 'src/models/album.model';
-import { Artist, ArtistInsertDto, ArtistUpdateDto } from 'src/models/artist.model';
+import { AlbumInsertDto } from '../models/album.model';
+import { Artist, ArtistInsertDto, ArtistUpdateDto } from '../models/artist.model';
 import { ArtistService } from './artist.service';
 
 @Controller('artist')
@@ -38,11 +38,11 @@ export class ArtistController {
 
     @Put(':id')
     async Update(@Param('id') id: number, @Body() artist: ArtistUpdateDto) {
-      return this.artistService.updateArtist(id, artist);
+      return this.artistService.update(id, artist);
     }
   
     @Delete(':id')
     async Delete(@Param('id') id: number) {
-      return this.artistService.deleteArtist(id);
+      return this.artistService.delete(id);
     } 
 }
