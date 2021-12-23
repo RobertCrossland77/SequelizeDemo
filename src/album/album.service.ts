@@ -12,9 +12,10 @@ export class AlbumService {
     ) {}
 
     addSong = async(album_id: number, song: SongInsertDto) => {
-        const album = await this.albumModel.findByPk(album_id);
-        album.songs = [...album.songs, song as Song];
-        return this.albumModel.update(album, { where: { id: album_id }});
+        const album = await Album.findByPk(album_id);
+        return await Song.create({
+            ...song as Song, album_id: album_id
+        });
     }
 
     albums = async(skip?: number, take?: number, search?: string): Promise<Album[]> =>
