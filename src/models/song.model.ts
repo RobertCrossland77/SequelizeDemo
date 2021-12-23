@@ -20,7 +20,6 @@ export class Song extends Model {
   @Column
   id!: number;
 
-  @AllowNull
   @Unique
   @Column
   name: string;

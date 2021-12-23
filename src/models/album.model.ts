@@ -19,8 +19,7 @@ export class Album extends Model {
   @AutoIncrement
   @Column
   id!: number;
-
-  @AllowNull
+  
   @Unique
   @Column
   title: string;

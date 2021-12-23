@@ -1,5 +1,4 @@
-import { AutoIncrement, BelongsTo, BelongsToMany, Column, Model, PrimaryKey, Table } from 'sequelize-typescript';
-import { compileFunction } from 'vm';
+import { AutoIncrement, BelongsToMany, Column, Model, PrimaryKey, Table } from 'sequelize-typescript';
 import { Album } from './album.model';
 import { ArtistAlbum } from './artist-albums.model';
 

@@ -18,7 +18,6 @@ export class Lyric extends Model {
   @Column
   id!: number;
 
-  @AllowNull
   @Unique
   @Column
   content: string;
